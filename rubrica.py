@@ -1,4 +1,5 @@
 # esercizio construire una rubrica semplice con i dizionari
+import yaml
 rubrica = []
 
 def aggiungi(nome, cognome, telefono, indirizzo):
@@ -14,22 +15,20 @@ def svuota():
     s =input("Sei proprio sicuro di svuotare la tua Rubrica?? Y/N ")
     if s == "y" or s=="Y":
         rubrica.clear()
-    return "OK"
+        return "OK"
 def salva(files="rubrica.txt"):
-    #with open(files, "w") as my_rub:
-    print("sono qui")
-    my_rub = open("rubrica.txt", "w")
-    for el in rubrica:
-        my_rub.write(el+"\n")
-    my_rub.close()
+    with open(files, "w") as my_rub:
+        #my_rub = open("rubrica.txt", "w")
+        my_rub.write(yaml.dump(rubrica, default_flow_style=False))
     return "OK"
 def carica(files="rubrica.txt", modo = "r"):
     with open(files, modo) as mia_rub:
-        pass
+        rubrica = yaml.load(mia_rub)
+        print("fatto")
         # da completare
         
         
-
+"""
 
 R1 = {
     "nome" : "uno",
@@ -53,5 +52,10 @@ print(rubrica[2])
 
 print(modifica(2, "Giuseppe", "Rossi", [222333221,123123432],"via Andiamo n.11 Roncisvalle (PT)" ))
 print(rubrica[2])
-print(svuota)
+svuota()
+print(rubrica)
+salva()
+"""
+carica()
+#aggiungi("Mario", "Rossi", [222333221,123123432],"via Andiamo n.11 Roncisvalle (PT)")
 print(rubrica)

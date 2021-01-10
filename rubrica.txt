@@ -1,0 +1,18 @@
+- cognome: tale
+  indirizzo: via con l0'indirizzo Roma
+  nome: uno
+  telefono:
+  - '343222332'
+  - '4433223322'
+- cognome: tale
+  indirizzo: via con l0'indirizzo Genova
+  nome: due
+  telefono:
+  - '34776677332'
+  - '4777886622'
+- cognome: Rossi
+  indirizzo: via Andiamo n.11 Roncisvalle (PT)
+  nome: Giuseppe
+  telefono:
+  - 222333221
+  - 123123432
