@@ -1,4 +1,7 @@
 # esercizio construire una rubrica semplice con i dizionari
+# Le funzioni carica() svuota() rendono la rubrica intera come lista
+# Le altre funzioni rendono la stringa "OK"
+
 import yaml
 rubrica = []
 
@@ -13,19 +16,23 @@ def cancella(elemento):
     return "OK"
 def svuota():
     s =input("Sei proprio sicuro di svuotare la tua Rubrica?? Y/N ")
-    if s == "y" or s=="Y":
+    if s == "y" or s == "Y":
         rubrica.clear()
-        return "OK"
+    return rubrica
 def salva(files="rubrica.txt"):
     with open(files, "w") as my_rub:
         #my_rub = open("rubrica.txt", "w")
         my_rub.write(yaml.dump(rubrica, default_flow_style=False))
     return "OK"
 def carica(files="rubrica.txt", modo = "r"):
-    with open(files, modo) as mia_rub:
-        rubrica = yaml.load(mia_rub)
-        print("fatto")
-        # da completare
+        f = open(files, modo)
+        rubrica = yaml.load(f, Loader=yaml.FullLoader)
+        f.close()
+        return rubrica
+def caricaW(files="rubrica.txt", modo = "r"):
+     with open(files, modo) as my_rub:
+         rubrica = yaml.load(my_rub, Loader=yaml.FullLoader)
+         return rubrica
         
         
 """
@@ -56,6 +63,11 @@ svuota()
 print(rubrica)
 salva()
 """
-carica()
-#aggiungi("Mario", "Rossi", [222333221,123123432],"via Andiamo n.11 Roncisvalle (PT)")
+rubrica = carica()
+aggiungi("Mario", "Rossi", [222333221,123123432],"via Andiamo n.11 Roncisvalle (PT)")
+aggiungi("Paolo", "Verdi", [55533251,775566432],"via Versi n.13 Chissaddove (MT)")
 print(rubrica)
+# salva("pinko.txt")
+rubrica = svuota()
+print(rubrica)
+salva()
