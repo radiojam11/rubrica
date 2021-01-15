@@ -14,18 +14,22 @@ def modifica(elemento, nome, cognome, telefono, indirizzo):
 def cancella(elemento):
     rubrica.remove(elemento)
     return "OK"
-def svuota():
-    s =input("Sei proprio sicuro di svuotare la tua Rubrica?? Y/N ")
-    if s == "y" or s == "Y":
+def svuota(noparam=False):
+    if noparam == False:
+        s =input("Sei proprio sicuro di svuotare la tua Rubrica?? Y/N ")
+        if s == "y" or s == "Y":
+            rubrica.clear()
+        return rubrica
+    else:
         rubrica.clear()
-    return rubrica
+        return rubrica
 def salva(files="rubrica.txt"):
     with open(files, "w") as my_rub:
         #my_rub = open("rubrica.txt", "w")
         my_rub.write(yaml.dump(rubrica, default_flow_style=False))
     return "OK"
-def carica(files="rubrica.txt", modo = "r"):
-        f = open(files, modo)
+def carica(files="rubrica.txt"):
+        f = open(files, "r")
         rubrica = yaml.load(f, Loader=yaml.FullLoader)
         f.close()
         return rubrica
@@ -62,7 +66,7 @@ print(rubrica[2])
 svuota()
 print(rubrica)
 salva()
-"""
+
 rubrica = carica()
 aggiungi("Mario", "Rossi", [222333221,123123432],"via Andiamo n.11 Roncisvalle (PT)")
 aggiungi("Paolo", "Verdi", [55533251,775566432],"via Versi n.13 Chissaddove (MT)")
@@ -71,3 +75,4 @@ print(rubrica)
 rubrica = svuota()
 print(rubrica)
 salva()
+"""

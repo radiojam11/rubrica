@@ -1,16 +1,76 @@
 
 from bottle import route, run, post, request, static_file, get, error, template
+import rubrica
+
+@get('/msg')
+def message():
+    azione = request.query.azione
+
+    if azione == "aggiungi" :
+        nome= request.query.nome
+        cognome = request.query.cognome
+        telefono_str = request.query.telefono
+        indirizzo = request.query.indirizzo
+        if "," in telefono_str:
+            telefono = telefono_str.split(",")
+        else:
+            telefono =[]
+            telefono.append(telefono_str)
+        rubrica.aggiungi(nome=nome, cognome=cognome, telefono=telefono, indirizzo=indirizzo)
+        return "Elemento Aggiunto con successo"
+
+    elif azione == "modifica":
+        nome= request.query.nome
+        cognome = request.query.cognome
+        telefono_str = request.query.telefono
+        indirizzo = request.query.indirizzo
+        elemento = request.query.elemento
+        if "," in telefono_str:
+            telefono = telefono_str.split(",")
+        else:
+            telefono =[]
+            telefono.append(telefono_str)
+        rubrica.modifica(elemento=elemento, nome=nome, cognome=cognome, telefono=telefono, indirizzo=indirizzo)
+        return ("Elemento %s modificato con successo" % elemento)
+
+    elif azione == "cancella":
+        elemento = request.query.elemento
+        rubrica.cancella(elemento)
+        return ("Elemento %s Cancellato con successo" % elemento)
+
+    elif azione == "salva":
+        nomefile = request.query.nomefile
+        if nomefile != "":
+            rubrica.salva(nomefile)
+        else:
+            rubrica.salva()
+
+    elif azione == "svuota":
+        rubrica.svuota(noparam=True)
+        return "Rubrica svuotata con successo"
+    
+    elif azione == "carica":
+        nomefile = request.query.nomefile
+        if nomefile != "":
+            rubrica.carica(nomefile)
+        else:
+            rubrica.carica()
 
 
+    return ("azione completata")
 
 
 @error(404)
 def error404(error):
     return "Non ho trovato la pagina"
 
+@route('/rubrica')
+def rubrica_completa():
+    return template('mostra_rubrica')
+
 @route('/<filepath:path>')
 def server_static(filepath):
-    return static_file(filepath, root='./public/')
+    return static_file(filepath, root='./')
 
 """
 @route('/')

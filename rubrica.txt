@@ -1,12 +1,5 @@
-- cognome: Rossi
-  indirizzo: via Andiamo n.11 Roncisvalle (PT)
-  nome: Mario
+- cognome: Bagnoli
+  indirizzo: Roma
+  nome: Bacone
   telefono:
-  - 222333221
-  - 123123432
-- cognome: Verdi
-  indirizzo: via Versi n.13 Chissaddove (MT)
-  nome: Paolo
-  telefono:
-  - 55533251
-  - 775566432
+  - '999777555444'
