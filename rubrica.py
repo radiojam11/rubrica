@@ -50,7 +50,14 @@ def caricaW(files="rubrica.txt", modo = "r"):
          rubrica = yaml.load(my_rub, Loader=yaml.FullLoader)
          return rubrica
         
-        
+def componi_html():
+    """la funzione compone il file della rubrica dopo un chiamata di carica_rubrica """
+    #componi il file rubrica_car.html
+    pass
+
+
+
+
 """
 
 R1 = {

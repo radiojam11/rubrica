@@ -1,0 +1,209 @@
+
+
+
+body{
+font-family: arial;
+font-size: 16;
+color: navy;
+
+background-color: ivory; 
+	
+}
+
+
+
+
+table, tr, td{
+
+text-align: center;
+padding: 16px 32px;
+background-color: silver; 
+
+border: 0px solid silver;
+
+border-collapse: collapse;
+
+border-spacing: 0px;
+
+
+}
+
+
+
+th{
+background-color: grey; 
+
+}
+
+h2 {
+font-family: arial;
+font-size: 23;
+color: #4CAF50;
+}
+
+button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  width: 100px;
+  font-size: 18px;
+  
+  border-radius: 8px;
+ 
+  
+}
+
+.button1 {
+  background-color: white; 
+  color: #4CAF50; 
+  border: 2px solid #4CAF50;
+   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.5), 0 6px 20px 0 rgba(0,0,0,0.59);
+  
+}
+
+.button1:hover {
+  background-color: #4CAF50;
+  color: white;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.54), 0 17px 50px 0 rgba(0,0,0,0.59);
+}
+
+
+
+.fas{
+	
+	font-size: 48px;
+}
+.fas:hover{
+	
+color: 	#4CAF50;
+}
+
+
+
+
+.container_bottoni{
+	
+text-align: center;
+padding: 16px 32px;
+background-color: silver; 
+
+border: 0px solid silver;
+border-collapse: collapse;
+border-spacing: 0px;
+border-radius: 8px;
+
+width: 350px;
+  
+   position: absolute;
+   top: 20%;
+   left: 50%;
+   margin: -100px 0 0 -175px;
+	
+}
+#titolo_pag{
+	 background-image: linear-gradient(ivory 40%, #dce9f9 );
+	
+	 border-radius: 8px 8px 0 0;
+	
+}
+
+#titolo_bottoni {
+	
+	background-color: #dce9f9; 
+	 padding: 16px 32px;
+	 
+	 border-radius: 0 0 8px 8px;
+	
+}
+
+#bottoni{
+	
+	 padding: 16px 32px;
+}
+
+
+.bordered {
+    border: solid #ccc 1px;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+	behavior: url(border-radius.htc);
+    -webkit-box-shadow: 0 1px 1px #ccc; 
+    -moz-box-shadow: 0 1px 1px #ccc; 
+    box-shadow: 0 1px 1px #ccc;         
+}
+.bordered tr:hover {
+    background: #fbf8e9;
+    -o-transition: all 0.1s ease-in-out;
+    -webkit-transition: all 0.1s ease-in-out;
+    -moz-transition: all 0.1s ease-in-out;
+    -ms-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;     
+} 
+.bordered td, .bordered th {
+    border-left: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;    
+}
+.bordered th {
+    background-color: #dce9f9;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#ebf3fc), to(#dce9f9));
+    background-image: -webkit-linear-gradient(top, #ebf3fc, #dce9f9);
+    background-image:    -moz-linear-gradient(top, #ebf3fc, #dce9f9);
+    background-image:     -ms-linear-gradient(top, #ebf3fc, #dce9f9);
+    background-image:      -o-linear-gradient(top, #ebf3fc, #dce9f9);
+    background-image:         linear-gradient(top, #ebf3fc, #dce9f9);
+    -webkit-box-shadow: 0 1px 0 rgba(255,255,255,.8) inset; 
+    -moz-box-shadow:0 1px 0 rgba(255,255,255,.8) inset;  
+    box-shadow: 0 1px 0 rgba(255,255,255,.8) inset;        
+    border-top: none;
+    text-shadow: 0 1px 0 rgba(255,255,255,.5); 
+}
+.bordered td:first-child, .bordered th:first-child {
+    border-left: none;
+}
+.bordered th:first-child {
+    -moz-border-radius: 6px 0 0 0;
+    -webkit-border-radius: 6px 0 0 0;
+    border-radius: 6px 0 0 0;
+	behavior: url(border-radius.htc);
+}
+.bordered th:last-child {
+    -moz-border-radius: 0 6px 0 0;
+    -webkit-border-radius: 0 6px 0 0;
+    border-radius: 0 6px 0 0;
+	behavior: url(border-radius.htc);
+}
+.bordered th:only-child{
+    -moz-border-radius: 6px 6px 0 0;
+    -webkit-border-radius: 6px 6px 0 0;
+    border-radius: 6px 6px 0 0;
+	behavior: url(border-radius.htc);
+}
+.bordered tr:last-child td:first-child {
+    -moz-border-radius: 0 0 0 6px;
+    -webkit-border-radius: 0 0 0 6px;
+    border-radius: 0 0 0 6px;
+}
+.bordered tr:last-child td:last-child {
+    -moz-border-radius: 0 0 6px 0;
+    -webkit-border-radius: 0 0 6px 0;
+    border-radius: 0 0 6px 0;
+	behavior: url(border-radius.htc);
+}
+.piani {
+	text-align: center;
+	padding-top: 20px;
+	
+	
+}

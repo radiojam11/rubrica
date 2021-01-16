@@ -57,7 +57,7 @@ def message():
         #    rubrica.carica(nomefile)
         #else:
         mia_rubrica = rubrica.caricaW()
-        #return mia_rubrica
+        return template('mostra_rubrica')
 
     return ("azione completata")
 
@@ -69,6 +69,11 @@ def error404(error):
 @route('/rubrica')
 def rubrica_completa():
     return template('mostra_rubrica')
+
+@route('/')
+def indice():
+    #return template('mostra_rubrica')
+    return static_file("index.html", root='./www/')
 
 @route('/<filepath:path>')
 def server_static(filepath):
