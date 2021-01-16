@@ -3,32 +3,44 @@
 # Le altre funzioni rendono la stringa "OK"
 
 import yaml
+global rubrica
 rubrica = []
 
 def aggiungi(nome, cognome, telefono, indirizzo):
     rubrica.append({"nome" : nome, "cognome" : cognome, "telefono" : telefono, "indirizzo" : indirizzo})
+    salvaA()
     return "OK"
 def modifica(elemento, nome, cognome, telefono, indirizzo):
     rubrica[elemento]={"nome" : nome, "cognome" : cognome, "telefono" : telefono, "indirizzo" : indirizzo}
+    salvaA()
     return "OK"
 def cancella(elemento):
-    rubrica.remove(elemento)
+    del rubrica[int(elemento)]
+    salva()
     return "OK"
 def svuota(noparam=False):
     if noparam == False:
         s =input("Sei proprio sicuro di svuotare la tua Rubrica?? Y/N ")
         if s == "y" or s == "Y":
             rubrica.clear()
+        salva()
         return rubrica
     else:
         rubrica.clear()
+        salva()
         return rubrica
+def salvaA(files="rubrica.txt"):
+    with open(files, "a") as my_rub:
+        #my_rub = open("rubrica.txt", "w")
+        my_rub.write(yaml.dump(rubrica, default_flow_style=False))
+    return "OK"
 def salva(files="rubrica.txt"):
     with open(files, "w") as my_rub:
         #my_rub = open("rubrica.txt", "w")
         my_rub.write(yaml.dump(rubrica, default_flow_style=False))
     return "OK"
 def carica(files="rubrica.txt"):
+        #global rubrica
         f = open(files, "r")
         rubrica = yaml.load(f, Loader=yaml.FullLoader)
         f.close()

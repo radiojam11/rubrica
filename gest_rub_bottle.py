@@ -35,27 +35,29 @@ def message():
 
     elif azione == "cancella":
         elemento = request.query.elemento
-        rubrica.cancella(elemento)
+        rubrica.cancella(int(elemento))
         return ("Elemento %s Cancellato con successo" % elemento)
 
     elif azione == "salva":
         nomefile = request.query.nomefile
         if nomefile != "":
-            rubrica.salva(nomefile)
+            rubrica.salvaA(nomefile)
         else:
-            rubrica.salva()
+            rubrica.salvaA()
 
     elif azione == "svuota":
         rubrica.svuota(noparam=True)
         return "Rubrica svuotata con successo"
     
     elif azione == "carica":
+        global mia_rubrica
         nomefile = request.query.nomefile
-        if nomefile != "":
-            rubrica.carica(nomefile)
-        else:
-            rubrica.carica()
 
+        #if nomefile != "":
+        #    rubrica.carica(nomefile)
+        #else:
+        mia_rubrica = rubrica.caricaW()
+        #return mia_rubrica
 
     return ("azione completata")
 
@@ -70,7 +72,7 @@ def rubrica_completa():
 
 @route('/<filepath:path>')
 def server_static(filepath):
-    return static_file(filepath, root='./')
+    return static_file(filepath, root='./www/')
 
 """
 @route('/')
@@ -101,7 +103,7 @@ def message():
     return("%s is %s year old" % (name,age))
 """
 
-run(host='localhost', port=8080, reloader=True, debug=True)
+run(host='localhost', port=8081, reloader=True, debug=True)
 #   http://localhost:8080/msg?name=pippo&age=33    questa e' la richiesta di esempio da fare nel browser 
 
 
