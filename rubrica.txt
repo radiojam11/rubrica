@@ -1,1 +1,10 @@
-[]
+- cognome: Armignacca
+  indirizzo: Roma
+  nome: Pino
+  telefono:
+  - '22334455'
+- cognome: Armignacca
+  indirizzo: Roma
+  nome: Pino
+  telefono:
+  - '22334455'

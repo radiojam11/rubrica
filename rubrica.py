@@ -48,6 +48,7 @@ def carica(files="rubrica.txt"):
 def caricaW(files="rubrica.txt", modo = "r"):
      with open(files, modo) as my_rub:
          rubrica = yaml.load(my_rub, Loader=yaml.FullLoader)
+         print(rubrica)
          return rubrica
         
 def componi_html():

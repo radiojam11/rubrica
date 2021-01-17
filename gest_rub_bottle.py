@@ -57,18 +57,21 @@ def message():
         #    rubrica.carica(nomefile)
         #else:
         mia_rubrica = rubrica.caricaW()
-        return template('mostra_rubrica')
+        return template('mostra_rubrica', mia_rubrica=mia_rubrica)
 
-    return ("azione completata")
+    return ("Per eseguire azioni su Rubrica digita /msg?azione={AZIONE_da_eseguire} dopo indirizzo e porta nel Brawser")
 
 
 @error(404)
 def error404(error):
     return "Non ho trovato la pagina"
 
+"""
 @route('/rubrica')
 def rubrica_completa():
     return template('mostra_rubrica')
+
+"""
 
 @route('/')
 def indice():

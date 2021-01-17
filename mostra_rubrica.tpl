@@ -8,10 +8,11 @@
 <body>
 
 <table>
-    %for elemento in rubrica:
+    %for elemento in mia_rubrica:
     <tr>
         %for key in elemento:
-            <td>{{key}}</td>
+        <td>{{key}}</td>
+            <td>{{elemento[key]}}</td>
         %end
     </tr>
     %end
