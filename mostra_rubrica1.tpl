@@ -8,10 +8,16 @@
 <body>
 
 <table>
+<tr>
     %for num, elemento in enumerate(mia_rubrica):
-    <td>Elemento = {{num}}</td>
-    <td>Nome = {{elemento}}</td>
-    </tr>
+        <td>Elem. = {{num+1}}</td>
+        <td>Nome = {{elemento['nome']}}</td>
+        <td>Cognome = {{elemento['cognome']}}</td>
+        <td>Indirizzo = {{elemento['indirizzo']}}</td>
+        % for n, num_tel in enumerate(elemento['telefono']):
+            <td>Telefono {{n+1}} = {{num_tel}}</td>
+        %end
+</tr>
     %end
 </table>
 

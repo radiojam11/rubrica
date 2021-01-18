@@ -30,12 +30,12 @@ def message():
         else:
             telefono =[]
             telefono.append(telefono_str)
-        rubrica.modifica(elemento=elemento, nome=nome, cognome=cognome, telefono=telefono, indirizzo=indirizzo)
+        rubrica.modifica(elemento=int(elemento)-1, nome=nome, cognome=cognome, telefono=telefono, indirizzo=indirizzo)
         return ("Elemento %s modificato con successo" % elemento)
 
     elif azione == "cancella":
         elemento = request.query.elemento
-        rubrica.cancella(int(elemento))
+        rubrica.cancella(int(elemento)-1)
         return ("Elemento %s Cancellato con successo" % elemento)
  
     elif azione == "svuota":
@@ -43,8 +43,8 @@ def message():
         return "Rubrica svuotata con successo"
     
     elif azione == "carica":
-        nomefile = request.query.nomefile
-        mia_rubrica = rubrica.caricaW()
+        #nomefile = request.query.nomefile
+        mia_rubrica = rubrica.carica()
         return template('mostra_rubrica1', mia_rubrica=mia_rubrica)
 
     return ("Per eseguire azioni su Rubrica digita /msg?azione={AZIONE_da_eseguire} dopo indirizzo e porta nel Brawser")

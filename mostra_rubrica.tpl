@@ -9,7 +9,7 @@
 
 <table>
     %for num, elemento in enumerate(mia_rubrica):
-    <td>{{num}}</td>
+    <td>Elemento = {{num}}</td>
     <tr>
         %for key in elemento:
         

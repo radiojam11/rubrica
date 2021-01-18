@@ -1,11 +1,32 @@
-- cognome: Tasselli
-  indirizzo: Ravenna
-  nome: Dario
+- cognome: Panpani
+  indirizzo: Ravensburger
+  nome: Chiara
   telefono:
   - '5556789'
   - '3345544'
 - cognome: Melato
   indirizzo: Pistoia
-  nome: Giuseppaq
+  nome: Beppina
+  telefono:
+  - '5556789'
+  - '3345544'
+- cognome: Rossi
+  indirizzo: Pistoia
+  nome: Beppe
   telefono:
   - '22334455'
+- cognome: Novara
+  indirizzo: via Monte San Gabriele 1/D
+  nome: ''
+  telefono:
+  - '123'
+- cognome: aristalco
+  indirizzo: Roma
+  nome: ''
+  telefono:
+  - '12321'
+- cognome: aristalcozzi
+  indirizzo: Roma
+  nome: ''
+  telefono:
+  - '12321'
