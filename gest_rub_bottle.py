@@ -45,7 +45,7 @@ def message():
     elif azione == "carica":
         nomefile = request.query.nomefile
         mia_rubrica = rubrica.caricaW()
-        return template('mostra_rubrica', mia_rubrica=mia_rubrica)
+        return template('mostra_rubrica1', mia_rubrica=mia_rubrica)
 
     return ("Per eseguire azioni su Rubrica digita /msg?azione={AZIONE_da_eseguire} dopo indirizzo e porta nel Brawser")
 

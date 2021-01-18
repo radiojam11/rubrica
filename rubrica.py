@@ -7,19 +7,19 @@ global rubrica
 rubrica = []
 
 def aggiungi(nome, cognome, telefono, indirizzo):
-    #rubrica=carica()
+    rubrica=carica()
     rubrica.append({"nome" : nome, "cognome" : cognome, "telefono" : telefono, "indirizzo" : indirizzo})
-    salva()
+    salva(rubrica)
     return "OK"
 def modifica(elemento, nome, cognome, telefono, indirizzo):
-    rebrica=carica()
-    rubrica[elemento]={"nome" : nome, "cognome" : cognome, "telefono" : telefono, "indirizzo" : indirizzo}
-    salva()
+    rubrica=carica()
+    rubrica[int(elemento)]={"nome" : nome, "cognome" : cognome, "telefono" : telefono, "indirizzo" : indirizzo}
+    salva(rubrica)
     return "OK"
 def cancella(elemento):
     rubrica=carica()
     del rubrica[int(elemento)]
-    salva()
+    salva(rubrica)
     return "OK"
 def svuota(noparam=False):
     if noparam == False:
@@ -37,21 +37,24 @@ def salvaA(files="rubrica.txt"):
         #my_rub = open("rubrica.txt", "w")
         my_rub.write(yaml.dump(rubrica, default_flow_style=False))
     return "OK"
-def salva(files="rubrica.txt"):
-    with open(files, "w") as my_rub:
+def salva(rubrica):
+    with open("rubrica.txt", "w") as my_rub:
         #my_rub = open("rubrica.txt", "w")
         my_rub.write(yaml.dump(rubrica, default_flow_style=False))
     return "OK"
-def carica(files="rubrica.txt"):
-        f = open(files, "r")
-        rubrica = yaml.load(f, Loader=yaml.FullLoader)
+def carica():
+    try:
+        f = open("rubrica.txt", "r")
+    except FileNotFoundError:
+        f = open("rubrica.txt", "w")
+        rubrica = []
+        f.write(yaml.dump(rubrica, default_flow_style=False))
         f.close()
-        return rubrica
-def caricaW(files="rubrica.txt", modo = "r"):
-     with open(files, modo) as my_rub:
-         rubrica = yaml.load(my_rub, Loader=yaml.FullLoader)
-         print(rubrica)
-         return rubrica
+        f= open("rubrica.txt", "r")
+    rubrica = yaml.load(f, Loader=yaml.FullLoader)
+    f.close()
+    return rubrica
+
         
 def componi_html():
     """la funzione compone il file della rubrica dopo un chiamata di carica_rubrica """

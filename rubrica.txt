@@ -1,1 +1,11 @@
-[]
+- cognome: Tasselli
+  indirizzo: Ravenna
+  nome: Dario
+  telefono:
+  - '5556789'
+  - '3345544'
+- cognome: Melato
+  indirizzo: Pistoia
+  nome: Giuseppaq
+  telefono:
+  - '22334455'
