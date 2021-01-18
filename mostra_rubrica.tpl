@@ -8,9 +8,11 @@
 <body>
 
 <table>
-    %for elemento in mia_rubrica:
+    %for num, elemento in enumerate(mia_rubrica):
+    <td>{{num}}</td>
     <tr>
         %for key in elemento:
+        
         <td>{{key}}</td>
             <td>{{elemento[key]}}</td>
         %end

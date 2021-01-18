@@ -37,25 +37,13 @@ def message():
         elemento = request.query.elemento
         rubrica.cancella(int(elemento))
         return ("Elemento %s Cancellato con successo" % elemento)
-
-    elif azione == "salva":
-        nomefile = request.query.nomefile
-        if nomefile != "":
-            rubrica.salvaA(nomefile)
-        else:
-            rubrica.salvaA()
-
+ 
     elif azione == "svuota":
         rubrica.svuota(noparam=True)
         return "Rubrica svuotata con successo"
     
     elif azione == "carica":
-        global mia_rubrica
         nomefile = request.query.nomefile
-
-        #if nomefile != "":
-        #    rubrica.carica(nomefile)
-        #else:
         mia_rubrica = rubrica.caricaW()
         return template('mostra_rubrica', mia_rubrica=mia_rubrica)
 

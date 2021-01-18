@@ -7,14 +7,17 @@ global rubrica
 rubrica = []
 
 def aggiungi(nome, cognome, telefono, indirizzo):
+    #rubrica=carica()
     rubrica.append({"nome" : nome, "cognome" : cognome, "telefono" : telefono, "indirizzo" : indirizzo})
-    salvaA()
+    salva()
     return "OK"
 def modifica(elemento, nome, cognome, telefono, indirizzo):
+    rebrica=carica()
     rubrica[elemento]={"nome" : nome, "cognome" : cognome, "telefono" : telefono, "indirizzo" : indirizzo}
-    salvaA()
+    salva()
     return "OK"
 def cancella(elemento):
+    rubrica=carica()
     del rubrica[int(elemento)]
     salva()
     return "OK"
@@ -40,7 +43,6 @@ def salva(files="rubrica.txt"):
         my_rub.write(yaml.dump(rubrica, default_flow_style=False))
     return "OK"
 def carica(files="rubrica.txt"):
-        #global rubrica
         f = open(files, "r")
         rubrica = yaml.load(f, Loader=yaml.FullLoader)
         f.close()
