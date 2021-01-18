@@ -17,7 +17,8 @@ def message():
             telefono =[]
             telefono.append(telefono_str)
         rubrica.aggiungi(nome=nome, cognome=cognome, telefono=telefono, indirizzo=indirizzo)
-        return "Elemento Aggiunto con successo"
+        mia_rubrica = rubrica.carica()
+        return template('mostra_rubrica1', mia_rubrica=mia_rubrica)
 
     elif azione == "modifica":
         nome= request.query.nome

@@ -45,7 +45,7 @@ button {
   background-color: #4CAF50; /* Green */
   border: none;
   color: white;
-  padding: 16px 32px;
+  padding: 16px 82px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -109,6 +109,26 @@ width: 350px;
    margin: -100px 0 0 -175px;
 	
 }
+
+.container_risultato{
+	
+    text-align: center;
+    
+    background-color: silver; 
+    
+    border: 0px solid silver;
+    border-collapse: collapse;
+    border-spacing: 0px;
+    border-radius: 8px;
+    
+    width: 1050px;
+      
+       position: absolute;
+       top: 20%;
+       left: 20%;
+       margin: -100px 0 0 -175px;
+        
+    }
 #titolo_pag{
 	 background-image: linear-gradient(ivory 40%, #dce9f9 );
 	
@@ -127,7 +147,7 @@ width: 350px;
 
 #bottoni{
 	
-	 padding: 16px 32px;
+	 padding: 16px 62px;
 }
 
 
@@ -206,4 +226,14 @@ width: 350px;
 	padding-top: 20px;
 	
 	
+}
+
+.form1 {
+    text-align: justify;
+	padding-top: 20px;
+}
+
+.form2 {
+    text-align: justify;
+	padding-top: 20px;
 }

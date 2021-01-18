@@ -1,9 +1,8 @@
-- cognome: Panpani
-  indirizzo: Ravensburger
-  nome: Chiara
+- cognome: Corradi
+  indirizzo: a casa sua
+  nome: Michele
   telefono:
-  - '5556789'
-  - '3345544'
+  - '4444'
 - cognome: Melato
   indirizzo: Pistoia
   nome: Beppina
@@ -30,3 +29,28 @@
   nome: ''
   telefono:
   - '12321'
+- cognome: azino
+  indirizzo: palermo
+  nome: ''
+  telefono:
+  - '211222'
+- cognome: rossi
+  indirizzo: roma
+  nome: ''
+  telefono:
+  - '1122'
+- cognome: Agrippa
+  indirizzo: Dalmine
+  nome: midelio
+  telefono:
+  - '2211'
+- cognome: Luongo
+  indirizzo: Granaio d'italia
+  nome: Carlo
+  telefono:
+  - '44332211'
+- cognome: Stoffella
+  indirizzo: via Mazzole 2
+  nome: Luigino
+  telefono:
+  - Isera TN
