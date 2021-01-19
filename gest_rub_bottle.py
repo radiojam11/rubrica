@@ -22,14 +22,10 @@ def message():
         return template('mostra_rubrica1', mia_rubrica=mia_rubrica)
     elif azione == "cerca":
         elemento= request.query.elemento
-        nome= request.query.nome
-        cognome = request.query.cognome
-        telefono_str = request.query.telefono
-        indirizzo = request.query.indirizzo
         mia_rubrica = rubrica.carica()
         #controllo della variabile se piena
-        da_mod = mia_rubrica[int(elemento)]
-        return template('modifica_el_rubrica.tpl', da_mod = da_mod)
+        da_mod = mia_rubrica[int(elemento)-1]
+        return template('modifica_el_rubrica.tpl', da_mod = da_mod, elemento = elemento)
 
 
 

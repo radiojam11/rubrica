@@ -15,6 +15,8 @@
 </div>
 
 <table>
+<!-- da implementare il colore di riga differentew in funzione del pari o dispari del valore dedll elemento -->
+
 <tr>
     %for num, elemento in enumerate(mia_rubrica):
         <td>Elem.  {{num+1}}</td>
