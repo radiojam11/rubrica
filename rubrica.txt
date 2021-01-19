@@ -54,3 +54,8 @@
   nome: Luigino
   telefono:
   - Isera TN
+- cognome: torilli
+  indirizzo: via versi 44 roma
+  nome: vittorio
+  telefono:
+  - '21322'

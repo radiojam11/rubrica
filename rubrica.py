@@ -10,38 +10,38 @@ def aggiungi(nome, cognome, telefono, indirizzo):
     rubrica=carica()
     rubrica.append({"nome" : nome, "cognome" : cognome, "telefono" : telefono, "indirizzo" : indirizzo})
     salva(rubrica)
-    return "OK"
+    return 
 def modifica(elemento, nome, cognome, telefono, indirizzo):
     rubrica=carica()
     rubrica[int(elemento)]={"nome" : nome, "cognome" : cognome, "telefono" : telefono, "indirizzo" : indirizzo}
     salva(rubrica)
-    return "OK"
+    return 
 def cancella(elemento):
     rubrica=carica()
     del rubrica[int(elemento)]
     salva(rubrica)
-    return "OK"
+    return 
 def svuota(noparam=False):
     if noparam == False:
         s =input("Sei proprio sicuro di svuotare la tua Rubrica?? Y/N ")
         if s == "y" or s == "Y":
             rubrica.clear()
-        salva()
-        return rubrica
+        salva(rubrica)
+        return 
     else:
         rubrica.clear()
-        salva()
-        return rubrica
+        salva(rubrica)
+        return 
 def salvaA(files="rubrica.txt"):
     with open(files, "a") as my_rub:
         #my_rub = open("rubrica.txt", "w")
         my_rub.write(yaml.dump(rubrica, default_flow_style=False))
-    return "OK"
+    return 
 def salva(rubrica):
     with open("rubrica.txt", "w") as my_rub:
         #my_rub = open("rubrica.txt", "w")
         my_rub.write(yaml.dump(rubrica, default_flow_style=False))
-    return "OK"
+    return 
 def carica():
     try:
         f = open("rubrica.txt", "r")

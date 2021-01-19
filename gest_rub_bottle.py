@@ -1,6 +1,7 @@
 
 from bottle import route, run, post, request, static_file, get, error, template
 import rubrica
+from pyasn1.type.univ import Null
 
 @get('/msg')
 def message():
@@ -19,6 +20,19 @@ def message():
         rubrica.aggiungi(nome=nome, cognome=cognome, telefono=telefono, indirizzo=indirizzo)
         mia_rubrica = rubrica.carica()
         return template('mostra_rubrica1', mia_rubrica=mia_rubrica)
+    elif azione == "cerca":
+        elemento= request.query.elemento
+        nome= request.query.nome
+        cognome = request.query.cognome
+        telefono_str = request.query.telefono
+        indirizzo = request.query.indirizzo
+        mia_rubrica = rubrica.carica()
+        #controllo della variabile se piena
+        da_mod = mia_rubrica[int(elemento)]
+        return template('modifica_el_rubrica.tpl', da_mod = da_mod)
+
+
+
 
     elif azione == "modifica":
         nome= request.query.nome
