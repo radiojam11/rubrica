@@ -1,7 +1,7 @@
 
 from bottle import route, run, post, request, static_file, get, error, template
 import rubrica
-from pyasn1.type.univ import Null
+
 
 @get('/msg')
 def message():
