@@ -1,11 +1,60 @@
 #TecnoGeppetto
 # esercizio construire una rubrica semplice con i dizionari
-# Le funzioni carica() svuota() rendono la rubrica intera come lista
-# Le altre funzioni rendono la stringa "OK"
+# Aggiunto la funzione di salvataggio con Shelve (Pickle)
 
 import yaml
+import shelve
 global rubrica
 rubrica = []
+
+
+def peewee_salva():
+    #qui e' tutto da fare solo riportato qui esercizio ma tutto da fare
+        
+    import peewee
+    import datetime
+    db = peewee.SqliteDatabase('test.db')
+    class Note(peewee.Model):
+        text = peewee.CharField()
+        created = peewee.DateField(default=datetime.date.today)
+        class Meta:
+            database = db
+            db_table = 'notes'
+    Note.create_table(Note)
+    note1 = Note.create(text='Went to the cinema')
+    note1.save()
+    note2 = Note.create(text='Exercised in the morning',
+            created=datetime.date(2018, 10, 20))
+    note2.save()
+    note3 = Note.create(text='Worked in the garden',
+            created=datetime.date(2018, 10, 22))
+    note3.save()
+    note4 = Note.create(text='Listened to music')
+    note4.save()
+
+
+
+
+# queste due funzioni servono per testare la libreria Shelve 
+# per fare il salvataggio di file in formato binario Shelve usa Pickle per 
+# salvare su file.
+# Al momento non e' collegata al resto delle funzioni ma funziona perfettamente -
+def salva_shelve(rubrica):
+    with shelve.open("rubrica_shelve.dat") as f:
+        f['rubrica'] = rubrica
+def carica_shelve():
+    f = shelve.open('rubrica_shelve.dat')
+    try:
+        rubrica = f['rubrica']
+    except:
+        pass
+    finally:
+        f.close()
+    # se non trova la lista rubrica dentro il file  .dat va in crash ( accade se il file non esiste o e' vuoto.) da sistemare
+    return rubrica
+
+    
+
 
 def aggiungi(nome, cognome, telefono, indirizzo):
     rubrica=carica()
@@ -33,11 +82,7 @@ def svuota(noparam=False):
         rubrica.clear()
         salva(rubrica)
         return 
-def salvaA(files="rubrica.txt"):
-    with open(files, "a") as my_rub:
-        #my_rub = open("rubrica.txt", "w")
-        my_rub.write(yaml.dump(rubrica, default_flow_style=False))
-    return 
+
 def salva(rubrica):
     with open("rubrica.txt", "w") as my_rub:
         #my_rub = open("rubrica.txt", "w")
@@ -55,5 +100,3 @@ def carica():
     rubrica = yaml.load(f, Loader=yaml.FullLoader)
     f.close()
     return rubrica
-
-   

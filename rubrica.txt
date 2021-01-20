@@ -49,13 +49,18 @@
   nome: Carlo
   telefono:
   - '44332211'
-- cognome: Stoffella
-  indirizzo: via Mazzole 2
-  nome: Luigino
+- cognome: Luongo
+  indirizzo: Granaio
+  nome: Carlo
   telefono:
-  - Isera TN
-- cognome: torilli
-  indirizzo: via versi 44 roma
-  nome: vittorio
+  - '[''44332211'']'
+- cognome: Luongo
+  indirizzo: Granaio
+  nome: Carlo
   telefono:
-  - '21322'
+  - '["[''44332211'']"]'
+- cognome: Francia
+  indirizzo: Grosseto
+  nome: Bea angela
+  telefono:
+  - '[''33333333'']'
