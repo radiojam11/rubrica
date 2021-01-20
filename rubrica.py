@@ -4,36 +4,39 @@
 
 import yaml
 import shelve
+import peewee
+import datetime
 global rubrica
 rubrica = []
 
+# Creo un modello per gli elementi della rubrica
+db = peewee.SqliteDatabase('rubrica.db')
+class Rubrica(peewee.Model):
+    nome = peewee.CharField()
+    cognome = peewee.CharField()
+    indirizzo = peewee.CharField()
+    telefono = peewee.CharField()
+    creato = peewee.DateField(default=datetime.date.today)
+    class Meta:
+        database = db
+        db_table = 'rubrica'
 
-def peewee_salva():
-    #qui e' tutto da fare solo riportato qui esercizio ma tutto da fare
-        
-    import peewee
-    import datetime
-    db = peewee.SqliteDatabase('test.db')
-    class Note(peewee.Model):
-        text = peewee.CharField()
-        created = peewee.DateField(default=datetime.date.today)
-        class Meta:
-            database = db
-            db_table = 'notes'
-    Note.create_table(Note)
-    note1 = Note.create(text='Went to the cinema')
-    note1.save()
-    note2 = Note.create(text='Exercised in the morning',
-            created=datetime.date(2018, 10, 20))
-    note2.save()
-    note3 = Note.create(text='Worked in the garden',
-            created=datetime.date(2018, 10, 22))
-    note3.save()
-    note4 = Note.create(text='Listened to music')
-    note4.save()
-
-
-
+# Qui creo l'accesso ai dati della rubrica con la libreria PEEWEE (che si basa su Pickle)
+def peewee_salva(rubrica): #
+    # Agganciato il DB, create le tabelle  e scrive in DB ok 
+    Rubrica.create_table(Rubrica)
+    elemento1 = Rubrica.create(nome='Andrea', cognome='Verdi', indirizzo='via le mani dal naso Roma', telefono=['772321','888888'])
+    elemento1.save()
+ 
+def peewee_carica():
+    # lettura del DB  e carica delle variabili OK
+    tutta = Rubrica.select()
+    print(tutta)
+    for rubrica in Rubrica.select():
+        print(rubrica.nome)
+        print(rubrica.creato)
+        print(rubrica.id)
+        print(rubrica.telefono)
 
 # queste due funzioni servono per testare la libreria Shelve 
 # per fare il salvataggio di file in formato binario Shelve usa Pickle per 
@@ -53,9 +56,7 @@ def carica_shelve():
     # se non trova la lista rubrica dentro il file  .dat va in crash ( accade se il file non esiste o e' vuoto.) da sistemare
     return rubrica
 
-    
-
-
+# Qui invece costruisco la rubrica sensa librerie, solo con funzioni di base di python
 def aggiungi(nome, cognome, telefono, indirizzo):
     rubrica=carica()
     rubrica.append({"nome" : nome, "cognome" : cognome, "telefono" : telefono, "indirizzo" : indirizzo})
@@ -100,3 +101,5 @@ def carica():
     rubrica = yaml.load(f, Loader=yaml.FullLoader)
     f.close()
     return rubrica
+#peewee_salva()
+peewee_carica()
