@@ -1,8 +1,8 @@
 - cognome: Corradi
-  indirizzo: a casa d-altri
+  indirizzo: a
   nome: Michele
   telefono:
-  - '[''4444'']'
+  - '4444'
 - cognome: Melato
   indirizzo: Pistoia
   nome: Beppina

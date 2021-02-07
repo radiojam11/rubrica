@@ -18,7 +18,7 @@ rubrica = []
 # Per utilizzare lo stesso motore rubrica.py con PeeWee non si deve usare la funzione salva come con tutte le altre librerie
 # perche' in questo caso i dati vengono trattenuti nel DB e non soostituiti tutte le volte come negli altri casi.
 # Quindi per salvare nuovi item in rubrica va utilizzato la funzione apposita (da creare)  ma non la funzione salva 
-# che duplicherebbe tutti i vecchi dati#
+# che duplicherebbe tutti i dati gia' inseriti#
 
 # Creo un modello per gli elementi della rubrica
 db = peewee.SqliteDatabase('rubrica.db')
@@ -123,7 +123,7 @@ def salva(rubrica):
     with open("rubrica.txt", "w") as my_rub:
         #my_rub = open("rubrica.txt", "w")
         my_rub.write(yaml.dump(rubrica, default_flow_style=False))
-    return 
+    return True
 def carica():
     try:
         f = open("rubrica.txt", "r")
@@ -138,36 +138,36 @@ def carica():
     return rubrica
 
 
-# Qui invece costruisco la rubrica sensa librerie, solo con funzioni di base di python
+# Qui invece costruisco la rubrica senza librerie, solo con funzioni di base di python
 def aggiungi(nome, cognome, telefono, indirizzo):
     rubrica=carica()
     rubrica.append({"nome" : nome, "cognome" : cognome, "telefono" : telefono, "indirizzo" : indirizzo})
     salva(rubrica)
-    return 
+    return True
 def modifica(elemento, nome, cognome, telefono, indirizzo):
     rubrica=carica()
     rubrica[int(elemento)]={"nome" : nome, "cognome" : cognome, "telefono" : telefono, "indirizzo" : indirizzo}
     salva(rubrica)
-    return 
+    return True
 def cancella(elemento):
     rubrica=carica()
     del rubrica[int(elemento)]
     salva(rubrica)
-    return 
+    return True
 def svuota(noparam=False):
     if noparam == False:
         s =input("Sei proprio sicuro di svuotare la tua Rubrica?? Y/N ")
         if s == "y" or s == "Y":
             rubrica.clear()
         salva(rubrica)
-        return 
+        return True
     else:
         rubrica.clear()
         salva(rubrica)
-        return 
+        return True
 
 #peewee_salva()
 #peewee_salva([{'nome': 'Maria', 'cognome': 'Rossi', 'telefono': "['772321', '888888']", 'indirizzo': 'via versi Roma'}])
 #peewee_aggiungi(nome='Federico', cognome='Rovazzi', indirizzo='via di culo  Roma', telefono=['33452321','9987888888'])
-peewee_modifica(elemento = 1, nome= "Asdrubale", cognome = "Aniscalchi", indirizzo = " via le mani dal naso", telefono = "['123213']" )
-peewee_carica()
+#peewee_modifica(elemento = 1, nome= "Asdrubale", cognome = "Aniscalchi", indirizzo = " via le mani dal naso", telefono = "['123213']" )
+#peewee_carica()
